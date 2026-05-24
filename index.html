@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IMMORTAIL</title>
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <div id="app">
+
+    <!-- Header -->
+    <h1>IMMORTAIL</h1>
+    <div id="status">Booting...</div>
+
+    <!-- Pet status bar -->
+    <div id="pet-status"></div>
+
+    <!-- Identity panel -->
+    <div id="identity-panel"></div>
+
+    <!-- Chat UI -->
+    <div id="ui">
+      <div class="input-row">
+        <input id="input" placeholder="Say something..." />
+        <button onclick="send()">Send</button>
+      </div>
+      <div id="output"></div>
+    </div>
+
+    <!-- Goal System -->
+    <div class="section-header">Goals</div>
+    <div id="goals-panel"></div>
+    <div class="input-row goal-input-row">
+      <input id="goal-input" placeholder="Add a goal..." />
+      <button onclick="addGoalFromUI()">+ Goal</button>
+    </div>
+
+    <!-- RUN 7: Agent Log -->
+    <div class="section-header">Agent Activity Log</div>
+    <div id="agent-log"></div>
+
+    <!-- Memory Timeline -->
+    <div class="section-header">Memory Timeline</div>
+    <div id="timeline"></div>
+
+    <!-- Migration -->
+    <div id="migration-panel">
+      <div class="section-header">Device Migration</div>
+
+      <div class="migration-row">
+        <button onclick="handleExportKey()">Export Key</button>
+        <textarea id="migration-output" placeholder="Your IMMORTAIL key will appear here..." readonly></textarea>
+      </div>
+
+      <div class="migration-row">
+        <button onclick="handleImportKey()">Import Key</button>
+        <textarea id="migration-input" placeholder="Paste your IMMORTAIL key here..."></textarea>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="storage.js"></script>
+  <script src="engine.js"></script>
+  <script src="app.js"></script>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js");
+    }
+  </script>
+
+</body>
+</html>
