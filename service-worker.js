@@ -1,4 +1,4 @@
-const CACHE = "immortail-run1-v1";
+const CACHE = "immortail-v1";
 
 self.addEventListener("install", e => {
   e.waitUntil(
@@ -9,6 +9,7 @@ self.addEventListener("install", e => {
         "/app.js",
         "/engine.js",
         "/storage.js",
+        "/ai.js",
         "/styles.css"
       ])
     )
